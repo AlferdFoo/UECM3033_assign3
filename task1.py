@@ -5,9 +5,13 @@ import sympy as sy
 
 # DO NOT CHANGE THE NAME OF gausslegendre() function
 def gausslegendre(f, a, b, n=20):
-    ans = 0
-    # Edit here to implement your code
+    [node,weight] = np.polynomial.legendre.leggauss(n)
 
+    node_new = 0.5 * (b-a) * node + 0.5 * (a+b )
+    y = f(node_new)
+    
+    ans = (0.5*(b-a)*np.dot(weight, y ))
+    
     return ans
 
 if __name__ == "__main__":
